@@ -1,0 +1,15 @@
+{
+  "name": "zaki-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Portofolio personal Muhammad Faiz Al Zaki - tema FONDASI + JALUR, blueprint minimalis tanpa dekorasi berlebih.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.1.0"
+  }
+}

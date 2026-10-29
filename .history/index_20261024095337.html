@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="id" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JQ · Backend Developer in Progress</title>
+    <meta
+      name="description"
+      content="Portofolio Muhammad Faiz Al Zaki, siswa Rekayasa Perangkat Lunak SMKN 64 Jakarta yang mendalami backend development dengan PHP, Laravel, dan MySQL."
+    />
+    <meta name="theme-color" content="#FAF7F0" />
+    <meta name="color-scheme" content="light" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Basic Open Graph. Ganti og:url setelah domain final tersedia. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ZAKI" />
+    <meta property="og:title" content="ZAKI — Muhammad Faiz Al Zaki" />
+    <meta
+      property="og:description"
+      content="RPL student & aspiring backend developer. Belajar membangun web yang benar-benar berguna, satu baris kode setiap hari."
+    />
+    <meta property="og:image" content="/assets/images/og-cover.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="id_ID" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      // Tandai JS aktif lebih awal agar animasi reveal tidak menyebabkan flash.
+      document.documentElement.classList.replace("no-js", "js");
+    </script>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Langsung ke konten</a>
+
+    <!-- Sprite ikon statis -->
+    <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <symbol id="icon-swords" viewBox="0 0 64 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 18 28 3" />
+          <path d="M17 18 38 3" />
+          <path d="M27 18 48 3" />
+          <path d="M6 16l5 5M16 16l5 5M26 16l5 5" />
+          <path d="M8 21 5 24M18 21l-3 3M28 21l-3 3" />
+        </g>
+      </symbol>
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+        <path
+          d="M4 12h15M13 6l6 6-6 6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="icon-arrow-up" viewBox="0 0 24 24">
+        <path
+          d="M12 20V5M6 11l6-6 6 6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="icon-pause" viewBox="0 0 24 24">
+        <rect x="7" y="5" width="3.4" height="14" rx="1.4" fill="currentColor" />
+        <rect x="13.6" y="5" width="3.4" height="14" rx="1.4" fill="currentColor" />
+      </symbol>
+      <symbol id="icon-play" viewBox="0 0 24 24">
+        <path d="M8 5.5v13l11-6.5-11-6.5Z" fill="currentColor" />
+      </symbol>
+    </svg>
+
+    <header class="site-header" data-header>
+      <div class="container site-header__inner">
+        <a class="brand" href="#beranda">
+          <span class="brand__mark" aria-hidden="true">Z</span>
+          <span class="brand__text">ZAKI<span class="brand__dot">.</span></span>
+          <span class="sr-only">— kembali ke beranda</span>
+        </a>
+
+        <nav class="nav" id="primary-navigation" aria-label="Navigasi utama">
+          <ul class="nav__list">
+            <li><a class="nav__link is-active" href="#beranda" data-nav-link>Beranda</a></li>
+            <li><a class="nav__link" href="#tentang" data-nav-link>About Me</a></li>
+            <li><a class="nav__link" href="#skills" data-nav-link>Skills</a></li>
+            <li><a class="nav__link" href="#projects" data-nav-link>Projects</a></li>
+            <li><a class="nav__link" href="#kontak" data-nav-link>Kontak</a></li>
+          </ul>
+          <a class="btn btn--primary btn--small nav__cta" href="#projects">
+            Lihat Proyek
+            <svg class="btn__icon" aria-hidden="true"><use href="#icon-arrow-right" /></svg>
+          </a>
+        </nav>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          aria-label="Buka menu navigasi"
+          data-nav-toggle
+        >
+          <span class="nav-toggle__bars" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- 01 / BERANDA -->
+      <section
+        class="hero"
+        id="beranda"
+        data-section
+        data-mascot-section="hero"
+        aria-labelledby="hero-title"
+      >
+        <div class="hero__decor" aria-hidden="true">
+          <svg class="hero__waves" viewBox="0 0 1440 260" preserveAspectRatio="none" focusable="false">
+            <path
+              d="M0 96c120-36 240-36 360 0s240 36 360 0 240-36 360 0 240 36 360 0v164H0Z"
+              fill="#BFEAFB"
+              opacity=".38"
+            />
+            <path
+              d="M0 146c120-32 240-32 360 0s240 32 360 0 240-32 360 0 240 32 360 0v114H0Z"
+              fill="#8ED8F8"
+              opacity=".2"
+            />
+            <path
+              d="M0 196c150-26 300-26 450 0s300 26 450 0 300-26 540 0"
+              fill="none"
+              stroke="#16845B"
+              stroke-width="1.5"
+              opacity=".18"
+            />
+            <path
+              d="M1120 76c48 0 72 26 72 58M1240 120c32 0 48 18 48 40M1000 160c30 0 46 16 46 36"
+              fill="none"
+              stroke="#8ED8F8"
+              stroke-width="2"
+              opacity=".45"
+            />
+          </svg>
+          <svg class="petal petal--1" viewBox="0 0 24 24" focusable="false">
+            <path
+              d="M12 2c3.4 4.1 5.4 7 5.4 9.7A5.4 5.4 0 0 1 12 17a5.4 5.4 0 0 1-5.4-5.3C6.6 9 8.6 6.1 12 2Zm0 5.6c-1.4 1.9-2.1 3.3-2.1 4.3 0 .6.3 1 .8 1.4V9.5c.4-.7.8-1.3 1.3-1.9Z"
+              fill="#8ED8F8"
+            />
+          </svg>
+          <svg class="petal petal--2" viewBox="0 0 24 24" focusable="false">
+            <path
+              d="M12 2c3.4 4.1 5.4 7 5.4 9.7A5.4 5.4 0 0 1 12 17a5.4 5.4 0 0 1-5.4-5.3C6.6 9 8.6 6.1 12 2Zm0 5.6c-1.4 1.9-2.1 3.3-2.1 4.3 0 .6.3 1 .8 1.4V9.5c.4-.7.8-1.3 1.3-1.9Z"
+              fill="#16845B"
+            />
+          </svg>
+          <svg class="petal petal--3" viewBox="0 0 24 24" focusable="false">
+            <path
+              d="M12 2c3.4 4.1 5.4 7 5.4 9.7A5.4 5.4 0 0 1 12 17a5.4 5.4 0 0 1-5.4-5.3C6.6 9 8.6 6.1 12 2Zm0 5.6c-1.4 1.9-2.1 3.3-2.1 4.3 0 .6.3 1 .8 1.4V9.5c.4-.7.8-1.3 1.3-1.9Z"
+              fill="#8ED8F8"
+            />
+          </svg>
+        </div>
+
+        <div class="container hero__inner">
+          <div class="hero__copy">
+            <p class="hero__label">
+              <span class="hero__label-dot" aria-hidden="true"></span>
+              RPL Student <span aria-hidden="true">•</span> Aspiring Backend Developer
+            </p>
+
+            <h1 class="hero__title" id="hero-title">
+              <span class="hero__line">Halo, aku</span>
+              <span class="hero__line hero__name">
+                Zaki<span class="hero__period">.</span>
+                <svg class="hero__underline" viewBox="0 0 220 14" preserveAspectRatio="none" aria-hidden="true">
+                  <path
+                    d="M4 9C55 4.5 120 3 216 6.5"
+                    fill="none"
+                    stroke="#8ED8F8"
+                    stroke-width="8"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </span>
+            </h1>
+
+            <p class="hero__tagline">Building useful things, one line of code at a time.</p>
+
+            <p class="hero__description">
+              Aku siswa Rekayasa Perangkat Lunak yang sedang mendalami backend development,
+              membangun aplikasi web, dan belajar membuat solusi digital yang benar-benar berguna.
+            </p>
+
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#projects">
+                Lihat Proyek
+                <svg class="btn__icon" aria-hidden="true"><use href="#icon-arrow-right" /></svg>
+              </a>
+              <a class="btn btn--outline" href="#tentang">Kenalan Sama Aku</a>
+            </div>
+
+            <div class="hero__identity">
+              <span class="hero__monogram" aria-hidden="true">MZ</span>
+              <p class="hero__identity-text">
+                <span>Muhammad Faiz Al Zaki</span>
+                <span class="badge badge--learning">
+                  <span class="badge__dot" aria-hidden="true"></span>
+                  Currently Learning Laravel
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <div class="hero__visual">
+            <div class="mascot-panel">
+              <button
+                class="mascot mascot--hero"
+                type="button"
+                id="mascot-hero"
+                data-mascot
+                aria-expanded="false"
+                aria-controls="mascot-bubble-hero"
+                aria-describedby="mascot-bubble-hero"
+                aria-label="Sapa Kitsu, maskot ZAKI"
+              >
+                <span class="mascot__bubble" id="mascot-bubble-hero">
+                  Halo! Aku Kitsu, teman kecil Zaki. Gulir pelan-pelan, nanti kutunjukkan apa yang
+                  sedang ia bangun.
+                </span>
+                <span class="mascot__stage">
+                  <span class="mascot__figure" data-mascot-figure>
+                    <!-- Maskot kitsune orisinal. Bagian tubuh dipisah agar bisa dianimasikan via CSS. -->
+                    <svg
+                      class="kitsune"
+                      viewBox="0 0 360 370"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <ellipse cx="180" cy="351" rx="88" ry="12" fill="#172A46" opacity=".08" />
+
+                      <g class="kitsune__tail">
+                        <path
+                          d="M248 282c34-8 66 2 81 24 11 16 4 33-10 37-13 4-24-6-21-19 2-8 9-12 16-10-14-12-39-14-62-7Z"
+                          fill="#16845B"
+                          stroke="#172A46"
+                          stroke-width="4"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M320 309c9 4 14 12 13 21-1 8-6 14-13 17 6-8 7-16 3-23-2-5-4-9-7-12Z"
+                          fill="#BFEAFB"
+                        />
+                      </g>
+
+                      <g class="kitsune__body">
+                        <path
+                          d="M124 232c-24 9-38 40-40 78-1 15 8 23 22 23h148c14 0 23-8 22-23-2-38-16-69-40-78-18 10-94 10-112 0Z"
+                          fill="#16845B"
+                          stroke="#172A46"
+                          stroke-width="4"
+                          stroke-linejoin="round"
+                        />
+                        <path d="M181 240v78" stroke="#0E6B4A" stroke-width="3" opacity=".55" />
+                        <path
+                          d="M160 253c-3 13-2 25 3 35M202 253c3 13 2 25-3 35"
+                          fill="none"
+                          stroke="#8ED8F8"
+                          stroke-width="4"
+                          stroke-linecap="round"
+                        />
+                        <circle cx="164" cy="291" r="4" fill="#8ED8F8" stroke="#172A46" stroke-width="2" />
+                        <circle cx="198" cy="291" r="4" fill="#8ED8F8" stroke="#172A46" stroke-width="2" />
+                        <path
+                          d="M143 305h74"
+                          stroke="#0E6B4A"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                          opacity=".6"
+                        />
+                        <ellipse cx="143" cy="334" rx="24" ry="11" fill="#F3DCC0" stroke="#172A46" stroke-width="4" />
+                        <ellipse cx="217" cy="334" rx="24" ry="11" fill="#F3DCC0" stroke="#172A46" stroke-width="4" />
+
+                        <g class="kitsune__arm kitsune__arm--left">
+                          <path
+                            d="M96 250c-16 7-26 23-26 42 0 11 7 19 17 20 10 1 17-6 17-16 0-12 4-22 12-29Z"
+                            fill="#16845B"
+                            stroke="#172A46"
+                            stroke-width="4"
+                            stroke-linejoin="round"
+                          />
+                          <ellipse cx="86" cy="314" rx="15" ry="13" fill="#F3DCC0" stroke="#172A46" stroke-width="4" />
+                        </g>
+
+                        <g class="kitsune__arm kitsune__arm--wave">
+                          <path
+                            d="M264 250c16 7 26 23 26 42 0 11-7 19-17 20-10 1-17-6-17-16 0-12-4-22-12-29Z"
+                            fill="#16845B"
+                            stroke="#172A46"
+                            stroke-width="4"
+                            stroke-linejoin="round"
+                          />
+                          <ellipse cx="274" cy="314" rx="15" ry="13" fill="#F3DCC0" stroke="#172A46" stroke-width="4" />
+                        </g>
+
+                        <g class="kitsune__badge" aria-hidden="true">
+                          <path
+                            d="M167 271c4-6 9-6 13 0s9 6 13 0M167 280c4-6 9-6 13 0s9 6 13 0"
+                            fill="none"
+                            stroke="#8ED8F8"
+                            stroke-width="2.6"
+                            stroke-linecap="round"
+                          />
+                        </g>
+                      </g>
+
+                      <path
+                        class="kitsune__hood"
+                        d="M101 226c-14-18-19-53-8-82 13-33 45-47 87-47s74 14 87 47c11 29 6 64-8 82-16 20-45 14-79 14s-63 6-79-14Z"
+                        fill="#0E6B4A"
+                        stroke="#172A46"
+                        stroke-width="4"
+                        stroke-linejoin="round"
+                      />
+
+                      <g class="kitsune__ear kitsune__ear--left">
+                        <path
+                          d="M131 122 100 53c-4-11 5-19 16-15l55 24Z"
+                          fill="#F3DCC0"
+                          stroke="#172A46"
+                          stroke-width="4"
+                          stroke-linejoin="round"
+                        />
+                        <path d="m126 101-16-36c-1-4 2-6 6-5l29 13Z" fill="#BFEAFB" />
+                      </g>
+                      <g class="kitsune__ear kitsune__ear--right">
+                        <path
+                          d="m229 122 31-69c4-11-5-19-16-15l-55 24Z"
+                          fill="#F3DCC0"
+                          stroke="#172A46"
+                          stroke-width="4"
+                          stroke-linejoin="round"
+                        />
+                        <path d="m234 101 16-36c1-4-2-6-6-5l-29 13Z" fill="#BFEAFB" />
+                      </g>
+
+                      <path
+                        class="kitsune__head"
+                        d="M180 93c-47 0-78 26-78 70 0 47 35 76 78 76s78-29 78-76c0-44-31-70-78-70Z"
+                        fill="#F3DCC0"
+                        stroke="#172A46"
+                        stroke-width="4"
+                      />
+
+                      <ellipse cx="180" cy="190" rx="45" ry="28" fill="#FFF8EE" />
+                      <ellipse cx="131" cy="197" rx="13" ry="8" fill="#8ED8F8" opacity=".45" />
+                      <ellipse cx="229" cy="197" rx="13" ry="8" fill="#8ED8F8" opacity=".45" />
+
+                      <g class="kitsune__eyes">
+                        <ellipse cx="155" cy="164" rx="7.5" ry="11" fill="#172A46" />
+                        <ellipse cx="205" cy="164" rx="7.5" ry="11" fill="#172A46" />
+                        <circle cx="157.5" cy="160" r="2.5" fill="#FFFFFF" />
+                        <circle cx="207.5" cy="160" r="2.5" fill="#FFFFFF" />
+                      </g>
+
+                      <path d="M180 177l-7 5c-3 2-2 6 2 6h10c4 0 5-4 2-6Z" fill="#172A46" />
+                      <path
+                        d="M169 194c4 6 8 7 11 1 3 6 7 5 11-1"
+                        fill="none"
+                        stroke="#172A46"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                      />
+
+                      <path
+                        d="M112 154c2-52 30-75 68-75s66 23 68 75"
+                        fill="none"
+                        stroke="#172A46"
+                        stroke-width="11"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M112 154c2-52 30-75 68-75s66 23 68 75"
+                        fill="none"
+                        stroke="#8ED8F8"
+                        stroke-width="5"
+                        stroke-linecap="round"
+                      />
+
+                      <g class="kitsune__cup">
+                        <rect x="88" y="146" width="36" height="52" rx="17" fill="#8ED8F8" stroke="#172A46" stroke-width="4" />
+                        <rect x="99" y="158" width="14" height="28" rx="7" fill="#172A46" />
+                      </g>
+                      <g class="kitsune__cup">
+                        <rect x="236" y="146" width="36" height="52" rx="17" fill="#8ED8F8" stroke="#172A46" stroke-width="4" />
+                        <rect x="247" y="158" width="14" height="28" rx="7" fill="#172A46" />
+                      </g>
+                    </svg>
+                  </span>
+                </span>
+              </button>
+
+              <div class="mascot-panel__foot">
+                <span class="mascot-panel__label">Kitsu <span aria-hidden="true">—</span> maskot ZAKI</span>
+                <button class="motion-toggle" type="button" data-motion-toggle aria-pressed="false">
+                  <svg class="motion-toggle__icon motion-toggle__icon--pause" aria-hidden="true">
+                    <use href="#icon-pause" />
+                  </svg>
+                  <svg class="motion-toggle__icon motion-toggle__icon--play" aria-hidden="true">
+                    <use href="#icon-play" />
+                  </svg>
+                  <span data-motion-label>Jeda animasi</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 / ABOUT -->
+      <section class="section about" id="tentang" data-section data-mascot-section="tentang" aria-labelledby="about-title">
+        <div class="container">
+          <header class="section-head" data-reveal>
+            <p class="eyebrow">
+              <span class="eyebrow__index">01</span>
+              <span class="eyebrow__rule" aria-hidden="true"></span>
+              <span>About Me</span>
+              <svg class="eyebrow__swords" aria-hidden="true"><use href="#icon-swords" /></svg>
+            </p>
+            <h2 id="about-title">Di balik kode, ada proses.</h2>
+          </header>
+
+          <div class="about__grid">
+            <div class="about__story" data-reveal>
+              <p class="about__lead">
+                Aku Muhammad Faiz Al Zaki, siswa kelas 12 SMKN 64 Jakarta jurusan Rekayasa
+                Perangkat Lunak. Aku tertarik dengan pengembangan aplikasi web, terutama backend
+                development menggunakan PHP dan Laravel. Saat ini aku terus mengembangkan kemampuan
+                melalui proyek, latihan, dan eksplorasi teknologi.
+              </p>
+              <a class="text-link" href="#skills">
+                Lihat yang sedang kupelajari
+                <svg class="text-link__icon" aria-hidden="true"><use href="#icon-arrow-right" /></svg>
+              </a>
+            </div>
+
+            <aside class="info-card" aria-label="Ringkasan profil" data-reveal>
+              <p class="info-card__label">Profil singkat</p>
+              <dl class="info-list">
+                <div class="info-list__row">
+                  <dt>Sekolah</dt>
+                  <dd>SMKN 64 Jakarta <span class="info-list__muted">· Kelas 12</span></dd>
+                </div>
+                <div class="info-list__row">
+                  <dt>Jurusan</dt>
+                  <dd>Rekayasa Perangkat Lunak</dd>
+                </div>
+                <div class="info-list__row">
+                  <dt>Fokus</dt>
+                  <dd>Backend Development</dd>
+                </div>
+                <div class="info-list__row">
+                  <dt>Sedang dipelajari</dt>
+                  <dd>Laravel, database design, dan praktik pengembangan web</dd>
+                </div>
+              </dl>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 / SKILLS -->
+      <section class="section skills" id="skills" data-section data-mascot-section="skills" aria-labelledby="skills-title">
+        <div class="container">
+          <header class="section-head" data-reveal>
+            <p class="eyebrow">
+              <span class="eyebrow__index">02</span>
+              <span class="eyebrow__rule" aria-hidden="true"></span>
+              <span>Skills</span>
+              <svg class="eyebrow__swords" aria-hidden="true"><use href="#icon-swords" /></svg>
+            </p>
+            <h2 id="skills-title">Bekal yang sedang diasah.</h2>
+            <p class="section-head__description">
+              Kombinasi yang sedang kupelajari dan pakai untuk latihan. Level di bawah ini adalah
+              penilaian pribadi yang jujur—bukan persentase atau sertifikasi.
+            </p>
+          </header>
+
+          <div class="skills__grid" data-skills-grid data-reveal-group></div>
+
+          <div class="skill-legend" data-reveal>
+            <p class="skill-legend__title">Arti label</p>
+            <ul class="skill-legend__list" data-skill-legend></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 / PROJECTS -->
+      <section class="section projects" id="projects" data-section data-mascot-section="projects" aria-labelledby="projects-title">
+        <div class="container">
+          <header class="section-head" data-reveal>
+            <p class="eyebrow">
+              <span class="eyebrow__index">03</span>
+              <span class="eyebrow__rule" aria-hidden="true"></span>
+              <span>Projects</span>
+              <svg class="eyebrow__swords" aria-hidden="true"><use href="#icon-swords" /></svg>
+            </p>
+            <h2 id="projects-title">Hal-hal yang kubangun sambil belajar.</h2>
+            <p class="section-head__description">
+              Kumpulan proyek sekolah dan latihan—mulai dari pencatatan peminjaman sampai profil
+              sekolah. Setiap kartu menyimpan detail fitur dan teknologi yang dipakai.
+            </p>
+          </header>
+
+          <div class="project-grid" data-project-grid></div>
+        </div>
+      </section>
+
+      <!-- 05 / CONTACT -->
+      <section class="section contact" id="kontak" data-section data-mascot-section="kontak" aria-labelledby="contact-title">
+        <div class="container">
+          <header class="section-head" data-reveal>
+            <p class="eyebrow">
+              <span class="eyebrow__index">04</span>
+              <span class="eyebrow__rule" aria-hidden="true"></span>
+              <span>Kontak</span>
+              <svg class="eyebrow__swords" aria-hidden="true"><use href="#icon-swords" /></svg>
+            </p>
+            <h2 id="contact-title">Punya ide yang mau dibangun?</h2>
+            <p class="section-head__description">
+              Aku terbuka untuk berdiskusi tentang proyek web, belajar bareng, dan peluang
+              kolaborasi yang sesuai.
+            </p>
+          </header>
+
+          <div class="contact__grid">
+            <div class="contact__aside" data-reveal>
+              <div class="contact__topics">
+                <p class="contact__topics-label">Terbuka untuk</p>
+                <ul class="contact__topics-list">
+                  <li>Diskusi proyek web</li>
+                  <li>Belajar bareng</li>
+                  <li>Kolaborasi yang sesuai</li>
+                </ul>
+              </div>
+
+              <div class="contact-links" data-contact-links role="group" aria-label="Tautan kontak"></div>
+
+              <p class="contact__location">
+                <span class="contact__location-dot" aria-hidden="true"></span>
+                Berbasis di Jakarta, Indonesia
+              </p>
+            </div>
+
+            <div class="contact-card" data-reveal>
+              <div class="contact-card__head">
+                <p class="contact-card__label">Form kontak</p>
+                <h3>Kirim pesan</h3>
+                <p>
+                  Ceritakan sedikit tentang ide atau pertanyaanmu. Kalau form belum terhubung,
+                  akan muncul instruksi dan alternatif email.
+                </p>
+              </div>
+
+              <form class="contact-form" data-contact-form novalidate>
+                <div class="field">
+                  <label for="contact-name">Nama <span class="field__required" aria-hidden="true">*</span></label>
+                  <input
+                    id="contact-name"
+                    name="name"
+                    type="text"
+                    autocomplete="name"
+                    required
+                    aria-required="true"
+                    aria-describedby="contact-name-error"
+                    placeholder="Nama kamu"
+                  />
+                  <p class="field__error" id="contact-name-error" data-error-for="name"></p>
+                </div>
+
+                <div class="field">
+                  <label for="contact-email">Email <span class="field__required" aria-hidden="true">*</span></label>
+                  <input
+                    id="contact-email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    inputmode="email"
+                    required
+                    aria-required="true"
+                    aria-describedby="contact-email-error"
+                    placeholder="nama@email.com"
+                  />
+                  <p class="field__error" id="contact-email-error" data-error-for="email"></p>
+                </div>
+
+                <div class="field">
+                  <label for="contact-message">Pesan <span class="field__required" aria-hidden="true">*</span></label>
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    rows="5"
+                    required
+                    aria-required="true"
+                    aria-describedby="contact-message-error"
+                    placeholder="Tulis pesanmu di sini…"
+                  ></textarea>
+                  <p class="field__error" id="contact-message-error" data-error-for="message"></p>
+                </div>
+
+                <button class="btn btn--primary contact-form__submit" type="submit" data-form-submit>
+                  <span data-form-submit-label>Kirim Pesan</span>
+                  <svg class="btn__icon" aria-hidden="true"><use href="#icon-arrow-right" /></svg>
+                </button>
+
+                <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <div class="site-footer__brand">
+          <a class="brand brand--footer" href="#beranda">
+            <span class="brand__mark" aria-hidden="true">Z</span>
+            <span class="brand__text">ZAKI<span class="brand__dot">.</span></span>
+            <span class="sr-only">— kembali ke beranda</span>
+          </a>
+          <p>Built with curiosity, coffee, and code.</p>
+        </div>
+
+        <nav class="site-footer__nav" aria-label="Navigasi footer">
+          <a href="#beranda">Beranda</a>
+          <a href="#tentang">About Me</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#kontak">Kontak</a>
+          <a href="" data-footer-github hidden>GitHub</a>
+        </nav>
+
+        <p class="site-footer__meta">
+          <span>&copy; <span data-year>2026</span> ZAKI</span>
+          <span class="site-footer__separator" aria-hidden="true">·</span>
+          <span>Dibuat dengan HTML, CSS, dan JavaScript.</span>
+        </p>
+      </div>
+    </footer>
+
+    <!-- Maskot versi kecil saat scroll -->
+    <div class="mascot-dock" data-mascot-dock>
+      <button
+        class="mascot mascot--dock"
+        type="button"
+        id="mascot-dock"
+        data-mascot
+        aria-expanded="false"
+        aria-controls="mascot-bubble-dock"
+        aria-describedby="mascot-bubble-dock"
+        aria-label="Sapa Kitsu, maskot ZAKI"
+      >
+        <span class="mascot__bubble" id="mascot-bubble-dock"></span>
+        <span class="mascot__figure" data-mascot-figure-dock></span>
+      </button>
+    </div>
+
+    <button class="back-to-top" type="button" data-back-to-top aria-label="Kembali ke atas" tabindex="-1">
+      <svg class="back-to-top__icon" aria-hidden="true"><use href="#icon-arrow-up" /></svg>
+    </button>
+
+    <dialog class="project-dialog" data-project-dialog aria-labelledby="project-dialog-title">
+      <button class="project-dialog__close" type="button" data-dialog-close aria-label="Tutup detail proyek">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path
+            d="M6 6l12 12M18 6 6 18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <article class="project-dialog__panel">
+        <div data-dialog-content></div>
+      </article>
+    </dialog>
+  </body>
+</html>

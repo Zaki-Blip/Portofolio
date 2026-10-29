@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Portfolio statis. Tidak ada halaman privat atau area admin.
+# Tambahkan sitemap setelah domain final tersedia jika diperlukan.
